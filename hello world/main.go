@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
@@ -18,7 +17,7 @@ func main() {
 	var flavorScale float32 = 5.8
 	fmt.Println(flavorScale)
 
-	fmt.Println(math.Round(x*100) / 100)
+	// fmt.Println(math.Round(x*100) / 100)
 	amount, unit := 10, "doll hairs"
 
 	fmt.Println(amount, unit, ", that's expensive...")
