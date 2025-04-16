@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"example/rest/models"
-
+	"example.com/rest/models"
 	"github.com/gin-gonic/gin"
 )
 
@@ -27,6 +26,10 @@ func getEvents(context *gin.Context) {
 
 	context.JSON(http.StatusOK, events)
 }
+
+// func getEvents(context *gin.Context) {
+// 	context.JSON(http.StatusOK, gin.H{"message": "It finally worked!"})
+// }
 
 func createEvent(context *gin.Context) {
 	var event models.Event

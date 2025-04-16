@@ -1,0 +1,30 @@
+type Patient {
+	id: ID!
+	name: String!
+}
+
+type Provider {
+	id: ID!
+	name: String!
+}
+
+type Medication {
+	id: ID!
+	name: String!
+	patient: Patient!
+	provider: Provider!
+}
+
+type Query {
+	medications: [Medication!]!
+}
+
+input NewMedicationInput {
+	name: String!
+	patientId: ID!
+	providerId: ID!
+}
+
+type Mutation {
+	addMedication(input: NewMedicationInput!): Medication!
+}

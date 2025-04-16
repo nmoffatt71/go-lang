@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medication Tracker</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</head>
+<body>
+    <h1>Medications</h1>
+    <div id="medications" hx-get="/medications" hx-trigger="load" hx-swap="innerHTML"></div>
+
+    <h2>Add Medication</h2>
+    <form hx-post="/add-medication" hx-target="#medications" hx-swap="beforeend">
+        <input type="text" name="name" placeholder="Medication Name" required />
+        <input type="text" name="patientId" placeholder="Patient ID" required />
+        <input type="text" name="providerId" placeholder="Provider ID" required />
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
