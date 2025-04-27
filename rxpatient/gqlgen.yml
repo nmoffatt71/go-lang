@@ -1,0 +1,13 @@
+schema:
+  - schema.graphqls
+generated:
+  - graphql/generated
+target:
+  graphql/generated
+models:
+  Patient:
+    model: patient-manager/graphql/model.Patient
+resolver:
+  layout: follow-schema
+  dir: graphql/resolver
+  package: resolver

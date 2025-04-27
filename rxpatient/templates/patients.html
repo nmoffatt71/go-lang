@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patients</title>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</head>
+<body>
+  <h1>Patient Management</h1>
+
+  <form id="search-form" hx-get="/patients" hx-target="#patients" hx-trigger="input changed delay:500ms" hx-include="[name=search]" hx-swap="innerHTML">
+    <input type="text" name="search" placeholder="Search by name..." />
+  </form>
+
+  <form hx-post="/query" hx-trigger="submit" hx-swap="outerHTML" hx-vals='{"query":"mutation($firstname: String!, $lastname: String!, $middlename: String, $dateofbirth: String!, $gender: String!) { createPatient(firstname: $firstname, lastname: $lastname, middlename: $middlename, dateofbirth: $dateofbirth, gender: $gender) { id firstname lastname } }"}'>
+    <input type="text" name="firstname" placeholder="First Name" required />
+    <input type="text" name="lastname" placeholder="Last Name" required />
+    <input type="text" name="middlename" placeholder="Middle Name" />
+    <input type="date" name="dateofbirth" required />
+    <select name="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <button type="submit">Add Patient</button>
+  </form>
+
+  <div id="patients"
+       hx-get="/patients"
+       hx-trigger="load, every 3s"
+       hx-swap="innerHTML">
+    Loading patients...
+  </div>
+</body>
+</html>
