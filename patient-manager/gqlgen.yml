@@ -1,0 +1,13 @@
+schema:
+  - schema.graphqls
+exec:
+  filename: graphql/generated/generated.go
+model:
+  filename: graphql/generated/models_gen.go
+resolver:
+  layout: follow-schema
+  dir: graphql/resolver
+  package: resolver
+models:
+  Patient:
+    model: patient-manager/graphql/model.Patient
