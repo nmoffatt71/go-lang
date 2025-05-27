@@ -1,0 +1,12 @@
+type Patient {
+  id: ID!
+  firstname: String!
+  lastname: String!
+  dateofbirth: String!
+  gender: String!
+}
+
+type Query {
+  searchPatientsByLastname(lastname: String!): [Patient!]!
+  patients: [Patient!]!
+}
